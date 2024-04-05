@@ -1,12 +1,15 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, Pressable } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
+import { Link } from 'expo-router';
 
 const TaskListItem = ({ task }) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>{task.description}</Text>
-      <AntDesign name='close' size={16} color='grey' />
-    </View>
+    <Link href={`/${task.id}`} asChild>
+      <Pressable style={styles.container}>
+        <Text style={styles.text}>{task.description}</Text>
+        <AntDesign name='close' size={16} color='grey' />
+      </Pressable>
+    </Link>
   );
 };
 

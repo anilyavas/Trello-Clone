@@ -11,8 +11,8 @@ import { useState } from 'react';
 
 const TaskList = () => {
   const [task, setTask] = useState([
-    { description: 'First task' },
-    { description: 'Second task' },
+    { description: 'First task', id: '123' },
+    { description: 'Second task', id: '67' },
   ]);
   const [input, setInput] = useState('');
 
