@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 5,
     gap: 10,
+    margin: 5,
   },
   title: {
     color: 'white',
