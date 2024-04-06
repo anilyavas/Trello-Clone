@@ -8,17 +8,21 @@ import {
 } from 'react-native';
 import TaskListItem from './TaskListItem';
 import { useState } from 'react';
+import { useQuery, useRealm } from '@realm/react';
+import { Task } from '../modals/Task';
 
 const TaskList = () => {
-  const [task, setTask] = useState([
-    { description: 'First task', id: '123' },
-    { description: 'Second task', id: '67' },
-  ]);
-  const [input, setInput] = useState('');
+  const realm = useRealm();
+  const tasks = useQuery(Task);
+
+  const [newTask, setNewTask] = useState('');
 
   const createTask = () => {
-    setTask([...task, { description: input }]);
-    setInput('');
+    realm.write(() => {
+      realm.create(Task, { description: newTask, user_id: '123' });
+    });
+
+    setNewTask('');
   };
 
   return (
@@ -26,12 +30,12 @@ const TaskList = () => {
       <Text style={styles.title}>Todo</Text>
       <FlatList
         contentContainerStyle={{ gap: 10 }}
-        data={task}
+        data={tasks}
         renderItem={({ item }) => <TaskListItem task={item} />}
       />
       <TextInput
-        value={input}
-        onChangeText={setInput}
+        value={newTask}
+        onChangeText={setNewTask}
         placeholderTextColor='grey'
         placeholder='Add todo'
         style={styles.input}
