@@ -20,7 +20,7 @@ const TaskList = () => {
 
   const createTask = () => {
     realm.write(() => {
-      realm.create(Task, { description: newTask, user_id: '123' });
+      realm.create(Task, { description: newTask, user_id: user.id });
     });
 
     setNewTask('');
