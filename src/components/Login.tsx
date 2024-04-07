@@ -8,7 +8,7 @@ const Login = () => {
   };
   return (
     <View style={styles.container}>
-      <Text onPress={guestLogin}>Login as a guest</Text>
+      <Text onPress={guestLogin}>Continue as a guest</Text>
     </View>
   );
 };
