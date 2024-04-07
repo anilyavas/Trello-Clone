@@ -8,12 +8,13 @@ import {
 } from 'react-native';
 import TaskListItem from './TaskListItem';
 import { useState } from 'react';
-import { useQuery, useRealm } from '@realm/react';
+import { useQuery, useRealm, useUser } from '@realm/react';
 import { Task } from '../modals/Task';
 
 const TaskList = () => {
   const realm = useRealm();
   const tasks = useQuery(Task);
+  const user = useUser();
 
   const [newTask, setNewTask] = useState('');
 
