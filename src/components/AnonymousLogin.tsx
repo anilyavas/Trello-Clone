@@ -1,19 +1,15 @@
 import { View, Text, StyleSheet } from 'react-native';
 import { useAuth } from '@realm/react';
 
-const Login = () => {
+const AnonymousLogin = () => {
   const { logInWithAnonymous } = useAuth();
   const guestLogin = () => {
     logInWithAnonymous();
   };
-  return (
-    <View style={styles.container}>
-      <Text onPress={guestLogin}>Continue as a guest</Text>
-    </View>
-  );
+  return null;
 };
 
-export default Login;
+export default AnonymousLogin;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
