@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { ThemeProvider, DarkTheme } from '@react-navigation/native';
 import RealmCustomProvider from '../providers/Realm';
 import { FontAwesome } from '@expo/vector-icons';
+import { View } from 'react-native';
 
 const RootLayout = () => {
   return (
@@ -12,13 +13,18 @@ const RootLayout = () => {
           <Stack
             screenOptions={{
               headerRight: () => (
-                <Link href={'/login'}>
-                  <FontAwesome
-                    name='user-circle-o'
-                    size={24}
-                    color='lightgrey'
-                  />
-                </Link>
+                <View style={{ gap: 10, flexDirection: 'row' }}>
+                  <Link href={'/login'}>
+                    <FontAwesome name='sign-in' size={24} color='lightgrey' />
+                  </Link>
+                  <Link href={'/profile'}>
+                    <FontAwesome
+                      name='user-circle-o'
+                      size={24}
+                      color='lightgrey'
+                    />
+                  </Link>
+                </View>
               ),
             }}
           />
