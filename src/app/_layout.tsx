@@ -1,4 +1,4 @@
-import { Stack } from 'expo-router';
+import { Link, Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { ThemeProvider, DarkTheme } from '@react-navigation/native';
 import RealmCustomProvider from '../providers/Realm';
@@ -12,7 +12,13 @@ const RootLayout = () => {
           <Stack
             screenOptions={{
               headerRight: () => (
-                <FontAwesome name='user-circle-o' size={24} color='lightgrey' />
+                <Link href={'/login'}>
+                  <FontAwesome
+                    name='user-circle-o'
+                    size={24}
+                    color='lightgrey'
+                  />
+                </Link>
               ),
             }}
           />
